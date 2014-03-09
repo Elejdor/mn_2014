@@ -1,12 +1,8 @@
 #include <cmath>
 #include <iostream>
-
+#include "Functions.hpp"
 #include "Add1.hpp"
 
-double foo(double x)
-{
-	return x*x-100;
-}
 
 double fooDX(double x)
 {
@@ -17,19 +13,20 @@ int main()
 {
 #define zadanie_1
 #ifdef zadanie_1
+	Function *foo = new Logarithmic();
 
-	int n = 50;
+	int n = 17;
 	std::cout << "Max iterations: " << n << "\n\n";
 
 	std::cout << "Bisection method:\n";
-	double result = Add1::Bisection(foo, 1, 11, n, Add1::stopCond);
-	std::cout << "x = " << result << std::endl << "f(x) = " << foo(result) << std::endl;
+	double result = Add1::Bisection(foo, 0.1f, 10, n, Add1::stopCond);
+	std::cout << "x = " << result << std::endl << "f(x) = " << foo->dx0(result) << std::endl;
 
 	std::cout << "\n\nNewton's method:\n";
-	result = Add1::Newton(foo, fooDX, 1, n, Add1::stopCond);
-	std::cout << "x = " << result << std::endl << "f(x) = " << foo(result) << std::endl;
+	result = Add1::Newton(foo, 0.1f, n, Add1::stopCond);
+	std::cout << "x = " << result << std::endl << "f(x) = " << foo->dx0(result) << std::endl;
 #endif
-
+	std::cout << std::endl;
 	system("pause");
 	return 0;
 }
