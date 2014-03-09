@@ -1,45 +1,34 @@
 #include <cmath>
 #include <iostream>
 
+#include "Add1.hpp"
+
 double foo(double x)
 {
 	return x*x-100;
 }
 
-class Add1 {
-public:
-	
-	static double Bisection(double (foo)(double x), double a, double b, int n)
-	{		
-		double fooA = foo(a);
-		double fooB = foo(b);
-
-		double result = 0;
-		double middle = (a + b) / 2;
-
-		if (fooA*fooB < 0 && n != 0)
-		{
-			if (fooA * foo(middle) < 0)
-			{
-				result = Bisection(foo, a, middle, n - 1);
-			}
-			else
-			{
-				result = Bisection(foo, middle, b, n - 1);
-			}
-		}
-		else if (fooA*fooB < 0 && n == 0)
-		{
-			result = middle;
-		}
-		
-		return result;
-	}
-};
+double fooDX(double x)
+{
+	return 2 * x;
+}
 
 int main()
 {
-	double result = Add1::Bisection(foo, -1, 50, 10);
+#define zadanie_1
+#ifdef zadanie_1
+
+	int n = 50;
+	std::cout << "Max iterations: " << n << "\n\n";
+
+	std::cout << "Bisection method:\n";
+	double result = Add1::Bisection(foo, 1, 11, n, Add1::stopCond);
+	std::cout << "x = " << result << std::endl << "f(x) = " << foo(result) << std::endl;
+
+	std::cout << "\n\nNewton's method:\n";
+	result = Add1::Newton(foo, fooDX, 1, n, Add1::stopCond);
+	std::cout << "x = " << result << std::endl << "f(x) = " << foo(result) << std::endl;
+#endif
 
 	system("pause");
 	return 0;
