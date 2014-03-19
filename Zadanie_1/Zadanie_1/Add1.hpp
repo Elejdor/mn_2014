@@ -26,10 +26,37 @@ public:
 		return false;
 	}
 
+		if (abs(result) < EPS0)
+		{
+			return true;
+		}
+			
+#else
+		if (abs(b - a) < EPSL)
+		{
+			return true;
+		}		
+#endif
+		return false;
+	}
+
 	static double Newton(Function *function, double x0, int n, bool (stopCondition)(double, double, double), bool moveForward = false)
 	{
 		double x1 = x0;
 
+		auto dx0;
+		auto dx1;
+		
+		if (moveForward)
+		{
+			dx0 = [](Function *func, double x)->double { func->dx1(x); };
+			dx1 = [](Function *func, double x)->double { func->dx2(x); };
+		}
+		else
+		{
+			dx0 = [](Function *func, double x)->double { func->dx0(x); };
+			dx1 = [](Function *func, double x)->double { func->dx1(x); };
+		}
 		x0 = x0 - (double)function->dx0(x0) / function->dx1(x0);
 
 		double result = 0;
