@@ -21,7 +21,7 @@ public:
 
 	double dx1(double x)
 	{
-		return 2 * x*x + 5 * x*x*x - 3 * x*x*x*x; //f(x) = 0 for x = {-1/3, 0, 2}
+		return -12*x*x + 15 * x + 4;
 	}
 };
 
