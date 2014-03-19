@@ -2,8 +2,8 @@
 #include <cmath>
 #include "Functions.hpp"
 
-#define EPSL 0.0001
-#define EPS0 0.00001
+#define EPSL 0.000001
+#define EPS0 0.000001
 
 class Add1 {
 public:
@@ -11,7 +11,7 @@ public:
 	static bool stopCond(double a, double b, double result)
 	{
 #define val_condition
-#ifdef val_condition
+#ifdef val_condition2
 		if (abs(result) < EPS0)
 		{
 			return true;
@@ -26,9 +26,37 @@ public:
 		return false;
 	}
 
-	static double Newton(Function *function, double x0, int n, bool (stopCondition)(double, double, double))
+		if (abs(result) < EPS0)
+		{
+			return true;
+		}
+			
+#else
+		if (abs(b - a) < EPSL)
+		{
+			return true;
+		}		
+#endif
+		return false;
+	}
+
+	static double Newton(Function *function, double x0, int n, bool (stopCondition)(double, double, double), bool moveForward = false)
 	{
 		double x1 = x0;
+
+		auto dx0;
+		auto dx1;
+		
+		if (moveForward)
+		{
+			dx0 = [](Function *func, double x)->double { func->dx1(x); };
+			dx1 = [](Function *func, double x)->double { func->dx2(x); };
+		}
+		else
+		{
+			dx0 = [](Function *func, double x)->double { func->dx0(x); };
+			dx1 = [](Function *func, double x)->double { func->dx1(x); };
+		}
 		x0 = x0 - (double)function->dx0(x0) / function->dx1(x0);
 
 		double result = 0;
