@@ -9,11 +9,17 @@ private:
 public:
 	virtual double dx0(double x) = 0;
 	virtual double dx1(double x) = 0;
+	virtual char* toChars(){ return ""; };
 };
 
 class Polynomial : public Function
 {
 public:
+	char* toChars()
+	{
+		return "2 * x*x + 5 * x*x*x - 3 * x*x*x*x";
+	}
+
 	double dx0(double x)
 	{
 		return 2 * x*x + 5 * x*x*x - 3 * x*x*x*x; //f(x) = 0 for x = {-1/3, 0, 2}
@@ -28,20 +34,30 @@ public:
 class Exponential : public Function
 {
 public:
+	char* toChars()
+	{
+		return "exp(x) - 10";
+	}
+
 	double dx0(double x)
 	{
-		return pow(5, x) - 10; //f(x) = 0 for about x = 1.4307
+		return (double)exp(x) - 10; //f(x) = 0 for about x = 1.4307
 	}
 
 	double dx1(double x)
 	{
-		return pow(5, x)*log(5);
+		return (double)exp(x);
 	}
 };
 
 class Logarithmic : public Function
 {
 public:
+	char* toChars()
+	{
+		return "2 * log10(x)";
+	}
+
 	double dx0(double x)
 	{
 		return 2 * log10(x); //f(x) = 0 for x = 1
