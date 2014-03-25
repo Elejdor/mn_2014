@@ -2,7 +2,7 @@
 #include <cmath>
 #include "Functions.hpp"
 
-#define EPSL 0.00001
+#define EPSL 0.0001
 #define EPS0 0.00001
 
 class Add1 {
