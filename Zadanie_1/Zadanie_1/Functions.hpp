@@ -9,7 +9,8 @@ private:
 public:
 	virtual double dx0(double x) = 0;
 	virtual double dx1(double x) = 0;
-	virtual char* toChars(){ return ""; };
+	virtual double dx2(double x) = 0;
+	virtual char* toChars(){ return ""; };	
 };
 
 class Polynomial : public Function
@@ -29,6 +30,12 @@ public:
 	{
 		return -12*x*x+15*x+4; //f(x) = 0 for x = {-1/3, 0, 2}
 	}
+
+	double dx2(double x)
+	{
+		return 15 - 24 * x;
+	}
+
 };
 
 class Exponential : public Function
@@ -48,6 +55,12 @@ public:
 	{
 		return (double)exp(x);
 	}
+
+	double dx2(double x)
+	{
+		return dx1(x);
+	}
+
 };
 
 class Logarithmic : public Function
@@ -66,6 +79,11 @@ public:
 	double dx1(double x)
 	{
 		return (double)2 / (x*log(10));
+	}
+
+	double dx2(double x)
+	{
+		return (double)2 / log(10);
 	}
 };
 

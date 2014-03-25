@@ -26,7 +26,9 @@ void plot(double p, double k, Function* function)
 
 int main()
 {
+	//Asserting
 	Function *foo = new Exponential();
+	auto stopCondition = Add1::stopRange;
 
 	//Set max iterations
 	int iters = 17;
@@ -34,18 +36,16 @@ int main()
 
 	//Bisection
 	std::cout << "Bisection method:\n";
-	double result = Add1::Bisection(foo, 0.1f, 10, iters, Add1::stopCond);
+	double result = Add1::Bisection(foo, 0.1f, 10, iters, stopCondition);
 	std::cout << "x = " << result << std::endl << "f(x) = " << foo->dx0(result) << std::endl;
 
 	//Newton
 	std::cout << "\n\nNewton's method:\n";
-	result = Add1::Newton(foo, 0.1f, iters, Add1::stopCond);
+	result = Add1::Newton(foo, 0.1f, iters, stopCondition, true);
 	std::cout << "x = " << result << std::endl << "f(x) = " << foo->dx0(result) << std::endl;
 
 	//Plotting
 	plot(0, 5, foo);
 
-	std::cout << std::endl;
-	system("pause");
-	return 0;
+	return 666;
 }

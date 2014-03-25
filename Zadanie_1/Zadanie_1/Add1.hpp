@@ -2,27 +2,29 @@
 #include <cmath>
 #include "Functions.hpp"
 
-#define EPSL 0.0001
+#define EPSL 0.00001
 #define EPS0 0.00001
 
 class Add1 {
 public:
 
-	static bool stopCond(double a, double b, double result)
+	static bool stopValue(double a, double b, double result)
 	{
-#define val_condition
-#ifdef val_condition
 		if (abs(result) < EPS0)
 		{
 			return true;
 		}
 			
-#else
+		return false;
+	}
+
+	static bool stopRange(double a, double b, double result)
+	{
 		if (abs(b - a) < EPSL)
 		{
 			return true;
-		}		
-#endif
+		}
+
 		return false;
 	}
 
@@ -33,16 +35,16 @@ public:
 
 		double result = 0;
 
-		if (n != 0 && !stopCond(x0, x1, function->dx0(x0)))
+		if (n != 0 && !stopCondition(x0, x1, function->dx0(x0)))
 		{
-			result = Newton(function, x0, n - 1, stopCond);
+			result = Newton(function, x0, n - 1, stopCondition);
 		}
 		else
 		{
 			result = x0;
 			std::cout << n << " iterations left\n";
 
-			if (!stopCond(x0, x1, function->dx0(x0)))
+			if (!stopCondition(x0, x1, function->dx0(x0)))
 			{
 				std::cout << "The result doesn't meet the required deviation (eps).\n";
 			}
@@ -55,6 +57,42 @@ public:
 		return result;
 	}
 
+	static double Newton(Function *function, double x0, int n, bool (stopCondition)(double, double, double), bool extremum)
+	{
+		double result = 0;
+		if (!extremum)
+		{
+			result = Newton(function, x0, n, stopCondition);
+		}
+		else
+		{
+			double x1 = x0;
+			x0 = x0 - (double)function->dx1(x0) / function->dx2(x0);
+
+			if (n != 0 && !stopCondition(x0, x1, function->dx1(x0)))
+			{
+				result = Newton(function, x0, n - 1, stopCondition);
+			}
+			else
+			{
+				result = x0;
+				std::cout << n << " iterations left\n";
+
+				if (!stopCondition(x0, x1, function->dx1(x0)))
+				{
+					std::cout << "The result doesn't meet the required deviation (eps).\n";
+				}
+				else
+				{
+					std::cout << "Value condition hit" << std::endl;
+				}
+			}
+		}
+
+
+		return result;
+	}
+
 	static double Bisection(Function *function, double a, double b, int n, bool (stopCondition)(double, double, double))
 	{
 		double fooA = function->dx0(a);
@@ -63,7 +101,7 @@ public:
 		double result = 0;
 		double middle = (a + b) / 2;
 
-		if (fooA*fooB < 0 && n != 0 && !stopCond(a, b, function->dx0(middle)))
+		if (fooA*fooB < 0 && n != 0 && !stopCondition(a, b, function->dx0(middle)))
 		{
 			if (fooA * function->dx0(middle) < 0)
 			{
@@ -79,7 +117,7 @@ public:
 			result = middle;
 			std::cout << n << " iterations left\n";
 
-			if (!stopCond(a, b, function->dx0(middle)))
+			if (!stopCondition(a, b, function->dx0(middle)))
 			{
 				std::cout << "The result doesn't meet the required deviation (eps).\n";
 			}
