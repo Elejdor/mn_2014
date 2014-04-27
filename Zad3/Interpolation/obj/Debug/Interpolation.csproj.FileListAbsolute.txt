@@ -1,0 +1,10 @@
+C:\Users\Elejdor\Documents\Visual Studio 2013\Projects\mn_2014\Zad3\Interpolation\bin\Debug\Interpolation.exe.config
+C:\Users\Elejdor\Documents\Visual Studio 2013\Projects\mn_2014\Zad3\Interpolation\bin\Debug\Interpolation.exe
+C:\Users\Elejdor\Documents\Visual Studio 2013\Projects\mn_2014\Zad3\Interpolation\bin\Debug\Interpolation.pdb
+C:\Users\Elejdor\Documents\Visual Studio 2013\Projects\mn_2014\Zad3\Interpolation\obj\Debug\Interpolation.csprojResolveAssemblyReference.cache
+C:\Users\Elejdor\Documents\Visual Studio 2013\Projects\mn_2014\Zad3\Interpolation\obj\Debug\Interpolation.Form1.resources
+C:\Users\Elejdor\Documents\Visual Studio 2013\Projects\mn_2014\Zad3\Interpolation\obj\Debug\Interpolation.Properties.Resources.resources
+C:\Users\Elejdor\Documents\Visual Studio 2013\Projects\mn_2014\Zad3\Interpolation\obj\Debug\Interpolation.csproj.GenerateResource.Cache
+C:\Users\Elejdor\Documents\Visual Studio 2013\Projects\mn_2014\Zad3\Interpolation\obj\Debug\Interpolation.exe
+C:\Users\Elejdor\Documents\Visual Studio 2013\Projects\mn_2014\Zad3\Interpolation\obj\Debug\Interpolation.pdb
+C:\Users\Elejdor\Documents\Visual Studio 2013\Projects\mn_2014\Zad3\Interpolation\obj\Debug\Interpolation.FormPlot.resources
