@@ -36,15 +36,18 @@ namespace Interpolation
             {
                 double t;
                 double h = 0;
-                if (k != 0)
+                
+                if (k > 0)
                 {
-                    h = nodes[k].x - nodes[k - 1].x;
+                    h = nodes[k].x - nodes[k-1].x;
                 }
                 else
                 {
                     h = 0;
                 }
+
                 t = GetVarT(nodes[0].x, h, x);
+
                 double tmpDiff = ProgressiveDifference(k, nodes) * CountFactor(k, t) / factorial((UInt64)k);
                 result += tmpDiff;
             }

@@ -14,6 +14,20 @@ namespace Interpolation
     {
         List<Point> nodes = new List<Point>();
 
+        public List<Point> ChebyshevNodes(int n, double a, double b, Func<double, double> function)
+        {
+            List<Point> result = new List<Point>();
+            for (int i = 0; i < n; i++)
+            {
+                double temp = Math.Cos(((2 * i + 1) * Math.PI) / (2 * n + 1));
+                double x = 0.5 * ((b - a) * temp) + (a + b);
+                result.Add(new Point(x, function(x)));
+            }
+
+            result.Reverse();
+            return result;
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -26,6 +40,7 @@ namespace Interpolation
             float nodesJump;
             int numberOfNodes;
             float startingNodeX;
+            
             if (float.TryParse(tbJump.Text, out jump) && 
                 float.TryParse(tbJumpNodes.Text, out nodesJump) && 
                 int.TryParse(tbNodesNumber.Text, out numberOfNodes) && 
@@ -35,12 +50,13 @@ namespace Interpolation
                 List<Point> interpolated = new List<Point>();
 
                 GenerateNodes(numberOfNodes, nodesJump, startingNodeX, x3);
+                //nodes = ChebyshevNodes(5, startingNodeX, 5, x3);
 
                 Debug.Log("Interpolation started");
                 double b = nodes[nodes.Count() - 1].x;
                 DateTime time = DateTime.Now;
 
-                for (float x = startingNodeX; x < b; x += jump)
+                for (double x = nodes[0].x; x < b; x += jump)
                 {
                     interpolated.Add(new Point(x, interpolator.Interpolate(nodes, x)));
                 }
