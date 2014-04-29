@@ -26,7 +26,7 @@ namespace Interpolation
                 chart1.Series["Nodes"].Points.AddXY(element.x, element.y);
             }
 
-            for (double x = nodes[0].x; x < nodes[nodes.Count-1].x; x += 0.01f)
+            for (double x = nodes[0].x; x < nodes[nodes.Count-1].x; x += 0.001f)
             {
                 chart1.Series["Function"].Points.AddXY(x, function(x));
             }

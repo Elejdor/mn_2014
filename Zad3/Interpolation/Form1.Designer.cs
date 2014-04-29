@@ -31,31 +31,36 @@
             this.btnPlot = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tbJump = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbJumpNodes = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbNodesNumber = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbStartingNode = new System.Windows.Forms.TextBox();
-            this.panelEqui = new System.Windows.Forms.Panel();
             this.panelChebyshev = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.tbEnd = new System.Windows.Forms.TextBox();
             this.tbBegin = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbEquiv = new System.Windows.Forms.RadioButton();
             this.rbChebyshev = new System.Windows.Forms.RadioButton();
-            this.panelEqui.SuspendLayout();
+            this.rbEquiv = new System.Windows.Forms.RadioButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbfLn = new System.Windows.Forms.RadioButton();
+            this.rbfSpline3 = new System.Windows.Forms.RadioButton();
+            this.rbfSpline2 = new System.Windows.Forms.RadioButton();
+            this.rbfSpline1 = new System.Windows.Forms.RadioButton();
+            this.rbfSin = new System.Windows.Forms.RadioButton();
+            this.rbfExp = new System.Windows.Forms.RadioButton();
+            this.rbfPoly = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelChebyshev.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnPlot
             // 
-            this.btnPlot.Location = new System.Drawing.Point(204, 187);
+            this.btnPlot.Location = new System.Drawing.Point(291, 79);
             this.btnPlot.Name = "btnPlot";
-            this.btnPlot.Size = new System.Drawing.Size(75, 23);
+            this.btnPlot.Size = new System.Drawing.Size(177, 37);
             this.btnPlot.TabIndex = 0;
             this.btnPlot.Text = "Plot";
             this.btnPlot.UseVisualStyleBackColor = true;
@@ -64,7 +69,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 13);
             this.label1.TabIndex = 1;
@@ -72,33 +77,16 @@
             // 
             // tbJump
             // 
-            this.tbJump.Location = new System.Drawing.Point(132, 6);
+            this.tbJump.Location = new System.Drawing.Point(132, 76);
             this.tbJump.Name = "tbJump";
             this.tbJump.Size = new System.Drawing.Size(100, 20);
             this.tbJump.TabIndex = 2;
             this.tbJump.Text = "0,1";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Nodes jump (Δx):";
-            // 
-            // tbJumpNodes
-            // 
-            this.tbJumpNodes.Location = new System.Drawing.Point(96, 6);
-            this.tbJumpNodes.Name = "tbJumpNodes";
-            this.tbJumpNodes.Size = new System.Drawing.Size(100, 20);
-            this.tbJumpNodes.TabIndex = 4;
-            this.tbJumpNodes.Text = "1";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 33);
+            this.label3.Location = new System.Drawing.Point(12, 103);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 13);
             this.label3.TabIndex = 5;
@@ -106,40 +94,11 @@
             // 
             // tbNodesNumber
             // 
-            this.tbNodesNumber.Location = new System.Drawing.Point(132, 30);
+            this.tbNodesNumber.Location = new System.Drawing.Point(132, 100);
             this.tbNodesNumber.Name = "tbNodesNumber";
             this.tbNodesNumber.Size = new System.Drawing.Size(100, 20);
             this.tbNodesNumber.TabIndex = 6;
             this.tbNodesNumber.Text = "10";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 31);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Starting node (x):";
-            // 
-            // tbStartingNode
-            // 
-            this.tbStartingNode.Location = new System.Drawing.Point(96, 28);
-            this.tbStartingNode.Name = "tbStartingNode";
-            this.tbStartingNode.Size = new System.Drawing.Size(100, 20);
-            this.tbStartingNode.TabIndex = 8;
-            this.tbStartingNode.Text = "-5";
-            // 
-            // panelEqui
-            // 
-            this.panelEqui.Controls.Add(this.label2);
-            this.panelEqui.Controls.Add(this.tbStartingNode);
-            this.panelEqui.Controls.Add(this.tbJumpNodes);
-            this.panelEqui.Controls.Add(this.label4);
-            this.panelEqui.Enabled = false;
-            this.panelEqui.Location = new System.Drawing.Point(16, 106);
-            this.panelEqui.Name = "panelEqui";
-            this.panelEqui.Size = new System.Drawing.Size(217, 66);
-            this.panelEqui.TabIndex = 9;
             // 
             // panelChebyshev
             // 
@@ -147,9 +106,9 @@
             this.panelChebyshev.Controls.Add(this.tbEnd);
             this.panelChebyshev.Controls.Add(this.tbBegin);
             this.panelChebyshev.Controls.Add(this.label6);
-            this.panelChebyshev.Location = new System.Drawing.Point(263, 106);
+            this.panelChebyshev.Location = new System.Drawing.Point(291, 12);
             this.panelChebyshev.Name = "panelChebyshev";
-            this.panelChebyshev.Size = new System.Drawing.Size(177, 66);
+            this.panelChebyshev.Size = new System.Drawing.Size(177, 52);
             this.panelChebyshev.TabIndex = 10;
             // 
             // label5
@@ -175,7 +134,7 @@
             this.tbBegin.Name = "tbBegin";
             this.tbBegin.Size = new System.Drawing.Size(100, 20);
             this.tbBegin.TabIndex = 4;
-            this.tbBegin.Text = "0";
+            this.tbBegin.Text = "-5";
             // 
             // label6
             // 
@@ -190,23 +149,12 @@
             // 
             this.groupBox1.Controls.Add(this.rbChebyshev);
             this.groupBox1.Controls.Add(this.rbEquiv);
-            this.groupBox1.Location = new System.Drawing.Point(148, 52);
+            this.groupBox1.Location = new System.Drawing.Point(15, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(217, 48);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Choose nodes generation method";
-            // 
-            // rbEquiv
-            // 
-            this.rbEquiv.AutoSize = true;
-            this.rbEquiv.Location = new System.Drawing.Point(8, 19);
-            this.rbEquiv.Name = "rbEquiv";
-            this.rbEquiv.Size = new System.Drawing.Size(76, 17);
-            this.rbEquiv.TabIndex = 0;
-            this.rbEquiv.Text = "equidistant";
-            this.rbEquiv.UseVisualStyleBackColor = true;
-            this.rbEquiv.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // rbChebyshev
             // 
@@ -221,29 +169,145 @@
             this.rbChebyshev.UseVisualStyleBackColor = true;
             this.rbChebyshev.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
+            // rbEquiv
+            // 
+            this.rbEquiv.AutoSize = true;
+            this.rbEquiv.Location = new System.Drawing.Point(8, 19);
+            this.rbEquiv.Name = "rbEquiv";
+            this.rbEquiv.Size = new System.Drawing.Size(76, 17);
+            this.rbEquiv.TabIndex = 0;
+            this.rbEquiv.Text = "equidistant";
+            this.rbEquiv.UseVisualStyleBackColor = true;
+            this.rbEquiv.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rbfLn);
+            this.groupBox2.Controls.Add(this.rbfSpline3);
+            this.groupBox2.Controls.Add(this.rbfSpline2);
+            this.groupBox2.Controls.Add(this.rbfSpline1);
+            this.groupBox2.Controls.Add(this.rbfSin);
+            this.groupBox2.Controls.Add(this.rbfExp);
+            this.groupBox2.Controls.Add(this.rbfPoly);
+            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(505, 96);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Choose function";
+            // 
+            // rbfLn
+            // 
+            this.rbfLn.AutoSize = true;
+            this.rbfLn.Location = new System.Drawing.Point(261, 19);
+            this.rbfLn.Name = "rbfLn";
+            this.rbfLn.Size = new System.Drawing.Size(70, 17);
+            this.rbfLn.TabIndex = 6;
+            this.rbfLn.Text = "f(x) = ln(x)";
+            this.rbfLn.UseVisualStyleBackColor = true;
+            this.rbfLn.CheckedChanged += new System.EventHandler(this.rbfLn_CheckedChanged);
+            // 
+            // rbfSpline3
+            // 
+            this.rbfSpline3.AutoSize = true;
+            this.rbfSpline3.Location = new System.Drawing.Point(6, 60);
+            this.rbfSpline3.Name = "rbfSpline3";
+            this.rbfSpline3.Size = new System.Drawing.Size(122, 17);
+            this.rbfSpline3.TabIndex = 5;
+            this.rbfSpline3.Text = "f(x) = sin(x^2 - 2x - 1)";
+            this.rbfSpline3.UseVisualStyleBackColor = true;
+            this.rbfSpline3.CheckedChanged += new System.EventHandler(this.rbfSpline3_CheckedChanged);
+            // 
+            // rbfSpline2
+            // 
+            this.rbfSpline2.AutoSize = true;
+            this.rbfSpline2.Location = new System.Drawing.Point(261, 60);
+            this.rbfSpline2.Name = "rbfSpline2";
+            this.rbfSpline2.Size = new System.Drawing.Size(89, 17);
+            this.rbfSpline2.TabIndex = 4;
+            this.rbfSpline2.Text = "f(x) = sin(ln(x))";
+            this.rbfSpline2.UseVisualStyleBackColor = true;
+            this.rbfSpline2.CheckedChanged += new System.EventHandler(this.rbfSpline2_CheckedChanged);
+            // 
+            // rbfSpline1
+            // 
+            this.rbfSpline1.AutoSize = true;
+            this.rbfSpline1.Location = new System.Drawing.Point(139, 60);
+            this.rbfSpline1.Name = "rbfSpline1";
+            this.rbfSpline1.Size = new System.Drawing.Size(87, 17);
+            this.rbfSpline1.TabIndex = 3;
+            this.rbfSpline1.Text = "f(x) = sin(3^x)";
+            this.rbfSpline1.UseVisualStyleBackColor = true;
+            this.rbfSpline1.CheckedChanged += new System.EventHandler(this.rbfSpline1_CheckedChanged);
+            // 
+            // rbfSin
+            // 
+            this.rbfSin.AutoSize = true;
+            this.rbfSin.Location = new System.Drawing.Point(394, 19);
+            this.rbfSin.Name = "rbfSin";
+            this.rbfSin.Size = new System.Drawing.Size(75, 17);
+            this.rbfSin.TabIndex = 2;
+            this.rbfSin.Text = "f(x) = sin(x)";
+            this.rbfSin.UseVisualStyleBackColor = true;
+            this.rbfSin.CheckedChanged += new System.EventHandler(this.rbfSin_CheckedChanged);
+            // 
+            // rbfExp
+            // 
+            this.rbfExp.AutoSize = true;
+            this.rbfExp.Location = new System.Drawing.Point(139, 19);
+            this.rbfExp.Name = "rbfExp";
+            this.rbfExp.Size = new System.Drawing.Size(68, 17);
+            this.rbfExp.TabIndex = 1;
+            this.rbfExp.Text = "f(x) = 3^x";
+            this.rbfExp.UseVisualStyleBackColor = true;
+            this.rbfExp.CheckedChanged += new System.EventHandler(this.rbfExp_CheckedChanged);
+            // 
+            // rbfPoly
+            // 
+            this.rbfPoly.AutoSize = true;
+            this.rbfPoly.Checked = true;
+            this.rbfPoly.Location = new System.Drawing.Point(6, 19);
+            this.rbfPoly.Name = "rbfPoly";
+            this.rbfPoly.Size = new System.Drawing.Size(103, 17);
+            this.rbfPoly.TabIndex = 0;
+            this.rbfPoly.TabStop = true;
+            this.rbfPoly.Text = "f(x) = x^2 - 2x - 1";
+            this.rbfPoly.UseVisualStyleBackColor = true;
+            this.rbfPoly.CheckedChanged += new System.EventHandler(this.rbfPoly_CheckedChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.panelChebyshev);
+            this.panel1.Controls.Add(this.btnPlot);
+            this.panel1.Controls.Add(this.tbJump);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.tbNodesNumber);
+            this.panel1.Location = new System.Drawing.Point(12, 114);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(505, 135);
+            this.panel1.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 238);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.panelChebyshev);
-            this.Controls.Add(this.panelEqui);
-            this.Controls.Add(this.tbJump);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnPlot);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.tbNodesNumber);
+            this.ClientSize = new System.Drawing.Size(529, 264);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.groupBox2);
             this.Name = "Form1";
-            this.Text = "Form1";
-            this.panelEqui.ResumeLayout(false);
-            this.panelEqui.PerformLayout();
+            this.Text = "Metody Numeryczne, Zadanie 3, Łukasz Nizik & Justyna Janiak";
             this.panelChebyshev.ResumeLayout(false);
             this.panelChebyshev.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -252,13 +316,8 @@
         private System.Windows.Forms.Button btnPlot;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbJump;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbJumpNodes;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbNodesNumber;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbStartingNode;
-        private System.Windows.Forms.Panel panelEqui;
         private System.Windows.Forms.Panel panelChebyshev;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbEnd;
@@ -267,6 +326,15 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rbChebyshev;
         private System.Windows.Forms.RadioButton rbEquiv;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton rbfSpline3;
+        private System.Windows.Forms.RadioButton rbfSpline2;
+        private System.Windows.Forms.RadioButton rbfSpline1;
+        private System.Windows.Forms.RadioButton rbfSin;
+        private System.Windows.Forms.RadioButton rbfExp;
+        private System.Windows.Forms.RadioButton rbfPoly;
+        private System.Windows.Forms.RadioButton rbfLn;
 
 
     }

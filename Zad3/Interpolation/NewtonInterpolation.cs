@@ -20,7 +20,7 @@ namespace Interpolation
 
     class NewtonChebyshevInterpolation
     {
-        double HornerScheme(List<double> tabA, double x)
+        public static double HornerScheme(List<double> tabA, double x)
         {
             double result = tabA[0];
             for (int i = 1; i < tabA.Count(); i += 1)
@@ -79,10 +79,10 @@ namespace Interpolation
         public List<double> GetInterpolationPolynomial(List<Point> nodes)
         {
             List<Point> result = new List<Point>();
-            int stopien = nodes.Count();
+            int degree = nodes.Count();
 
 	        List<List<double>> differentialQuotients = new List<List<double>>();
-            for (int i = 0; i < stopien; i++ )
+            for (int i = 0; i < degree; i++ )
             {
                 differentialQuotients.Add(new List<double>());
             }
@@ -92,18 +92,18 @@ namespace Interpolation
                 differentialQuotients[0].Add(node.y);
             }
 
-	        for (int i = 1; i < stopien; i += 1)
+	        for (int i = 1; i < degree; i += 1)
 	        {
-		        for (int j = 0; j < stopien - i; j += 1)
+		        for (int j = 0; j < degree - i; j += 1)
 		        {
 			        differentialQuotients[i].Add(DifferentialQuotient(new Point(nodes[j].x, differentialQuotients[i - 1][j]), new Point(nodes[j + i].x, differentialQuotients[i - 1][j + 1])));
 		        }
 	        }
                         
             List<double> polynomial = new List<double>();
-            for (int i = 0; i < stopien; i += 1) polynomial.Add(0);
+            for (int i = 0; i < degree; i += 1) polynomial.Add(0);
 
-            for (int i = 0; i < stopien; i += 1)
+            for (int i = 0; i < degree; i += 1)
             {
                 List<double> fi = new List<double>();
                 fi.Add(differentialQuotients[i][0]);
@@ -150,20 +150,9 @@ namespace Interpolation
 
             double result = 0;
             for (int k = 0; k < nodes.Count(); k++)
-            {
-                double t;
-                double h = 0;
-
-                if (k > 0)
-                {
-                    h = nodes[k].x - nodes[k - 1].x;
-                }
-                else
-                {
-                    h = 0;
-                }
-
-                t = (x - nodes[0].x) / (h);
+            {                
+                double h = nodes[1].x - nodes[0].x;
+                double t = (x - nodes[0].x) / (h);
 
                 double tmpDiff = ProgressiveDifference(k, nodes) * CountFactor(k, t) / factorial((UInt64)k);
                 result += tmpDiff;
