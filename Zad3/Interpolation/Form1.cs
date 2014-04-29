@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Interpolation
 {
     public partial class Form1 : Form
@@ -16,11 +17,12 @@ namespace Interpolation
 
         public List<Point> ChebyshevNodes(int n, double a, double b, Func<double, double> function)
         {
+            
             List<Point> result = new List<Point>();
             for (int i = 0; i < n; i++)
             {
-                double temp = Math.Cos(((2 * i + 1) * Math.PI) / (2 * n + 1));
-                double x = 0.5 * ((b - a) * temp) + (a + b);
+                double xn = Math.Cos(((2 * i + 1) * Math.PI) / (2 * n + 1));
+                double x = 0.5 * ((b - a) * xn + (a + b));
                 result.Add(new Point(x, function(x)));
             }
 
@@ -49,8 +51,7 @@ namespace Interpolation
                 NewtonInterpolation interpolator = new NewtonInterpolation();
                 List<Point> interpolated = new List<Point>();
 
-                GenerateNodes(numberOfNodes, nodesJump, startingNodeX, x3);
-                //nodes = ChebyshevNodes(5, startingNodeX, 5, x3);
+                GenerateNodes(numberOfNodes, nodesJump, startingNodeX, x3);                
 
                 Debug.Log("Interpolation started");
                 double b = nodes[nodes.Count() - 1].x;
@@ -63,7 +64,15 @@ namespace Interpolation
 
                 Debug.Log("Interpolation finished in " + (DateTime.Now - time).TotalSeconds.ToString() + " s.");
 
-                FormPlot form = new FormPlot(nodes, interpolated, x3);
+                //asdasdasd
+                nodes = ChebyshevNodes(5, startingNodeX, 5, x3);
+                List<double> domain = new List<double>();
+                for (double x = nodes[0].x; x < b; x += jump)
+                {
+                    domain.Add(x);
+                }
+                NewtonChebyshevInterpolation inter = new NewtonChebyshevInterpolation();
+                FormPlot form = new FormPlot(nodes, inter.Interpolate(nodes, domain), x3);
                 form.ShowDialog();
             }
             else
@@ -85,8 +94,8 @@ namespace Interpolation
 
         private double x3(double x)
         {
-            //return (float)Math.Pow(x, 3);
-            return Math.Sin(x);
+            return (float)Math.Pow(x, 3);
+            //return Math.Sin(x);
         }
     }
 }
