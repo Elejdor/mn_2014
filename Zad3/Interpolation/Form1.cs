@@ -13,11 +13,8 @@ namespace Interpolation
 {
     public partial class Form1 : Form
     {
-        List<Point> nodes = new List<Point>();
-
         public List<Point> ChebyshevNodes(int n, double a, double b, Func<double, double> function)
         {
-            
             List<Point> result = new List<Point>();
             for (int i = 0; i < n; i++)
             {
@@ -38,20 +35,35 @@ namespace Interpolation
 
         private void btnPlot_Click(object sender, EventArgs e)
         {
+            Function function = new Polynomial();
+
+            if (rbChebyshev.Checked)
+            {
+                ChebyshevInterpolation(function);
+            }
+            else
+            {
+                EquiDistantInterpolation(function);
+            }
+        }
+
+        private List<Point> EquiDistantInterpolation (Function func)
+        {
             float jump;
             float nodesJump;
             int numberOfNodes;
             float startingNodeX;
-            
-            if (float.TryParse(tbJump.Text, out jump) && 
-                float.TryParse(tbJumpNodes.Text, out nodesJump) && 
-                int.TryParse(tbNodesNumber.Text, out numberOfNodes) && 
+            List<Point> nodes = new List<Point>();
+            List<Point> interpolated = new List<Point>();
+
+            if (float.TryParse(tbJump.Text, out jump) &&
+                float.TryParse(tbJumpNodes.Text, out nodesJump) &&
+                int.TryParse(tbNodesNumber.Text, out numberOfNodes) &&
                 float.TryParse(tbStartingNode.Text, out startingNodeX))
             {
                 NewtonInterpolation interpolator = new NewtonInterpolation();
-                List<Point> interpolated = new List<Point>();
 
-                GenerateNodes(numberOfNodes, nodesJump, startingNodeX, x3);                
+                nodes = GenerateNodes(numberOfNodes, nodesJump, startingNodeX, func.GetValue);
 
                 Debug.Log("Interpolation started");
                 double b = nodes[nodes.Count() - 1].x;
@@ -64,38 +76,72 @@ namespace Interpolation
 
                 Debug.Log("Interpolation finished in " + (DateTime.Now - time).TotalSeconds.ToString() + " s.");
 
-                //asdasdasd
-                nodes = ChebyshevNodes(5, startingNodeX, 5, x3);
-                List<double> domain = new List<double>();
-                for (double x = nodes[0].x; x < b; x += jump)
-                {
-                    domain.Add(x);
-                }
-                NewtonChebyshevInterpolation inter = new NewtonChebyshevInterpolation();
-                FormPlot form = new FormPlot(nodes, inter.Interpolate(nodes, domain), x3);
+                FormPlot form = new FormPlot(nodes, interpolated, func.GetValue);
                 form.ShowDialog();
             }
             else
             {
                 MessageBox.Show("Wrong arguments. Note that a floating point number separator is coma (ex. 1,5).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
+
+            return interpolated;
         }
 
-        private void GenerateNodes(int numberOfNodes, float jump, double firstNodeX, Func<double, double> function)
+        private List<Point> ChebyshevInterpolation (Function func)
         {
-            nodes.Clear();
+            List<Point> interpolated;
+            int numberOfNodes;
+            float a, b, jump;
+            if (float.TryParse(tbJump.Text, out jump) &&
+                float.TryParse(tbBegin.Text, out a) &&
+                float.TryParse(tbEnd.Text, out b) &&
+                int.TryParse(tbNodesNumber.Text, out numberOfNodes))
+            {
+                NewtonChebyshevInterpolation interpolator = new NewtonChebyshevInterpolation();
+                List<Point> nodes = new List<Point>();
+                List<double> domain = new List<double>();
+
+                nodes = ChebyshevNodes(numberOfNodes, a, b, func.GetValue);
+
+                for (double x = nodes[0].x; x < b; x += jump)
+                {
+                    domain.Add(x);
+                }
+
+                interpolated = interpolator.Interpolate(nodes, domain);
+
+                FormPlot form = new FormPlot(nodes, interpolated, func.GetValue);
+                form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Wrong arguments. Note that a floating point number separator is coma (ex. 1,5).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+
+            return interpolated;
+        }
+
+        private List<Point> GenerateNodes(int numberOfNodes, float jump, double firstNodeX, Func<double, double> function)
+        {
+            List<Point> result = new List<Point>();
             for (int i = 0; i < numberOfNodes; i++)
             {
                 double x = firstNodeX + (double)i * jump;
-                nodes.Add(new Point(x, function(x)));
+                result.Add(new Point(x, function(x)));
             }
-
+            return result;
         }
 
-        private double x3(double x)
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            return (float)Math.Pow(x, 3);
-            //return Math.Sin(x);
+            panelEqui.Enabled = !panelEqui.Enabled;
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            panelChebyshev.Enabled = !panelChebyshev.Enabled;
         }
     }
 }

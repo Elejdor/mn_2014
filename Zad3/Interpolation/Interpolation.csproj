@@ -61,6 +61,7 @@
     <Compile Include="FormPlot.Designer.cs">
       <DependentUpon>FormPlot.cs</DependentUpon>
     </Compile>
+    <Compile Include="Functions.cs" />
     <Compile Include="NewtonInterpolation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

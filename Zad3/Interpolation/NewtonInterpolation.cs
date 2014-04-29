@@ -144,33 +144,6 @@ namespace Interpolation
             return result;
         }
 
-        //public double Interpolate(List<Point> nodes, double x)
-        //{
-        //    DateTime time = DateTime.Now;
-
-        //    double result = 0;
-        //    for (int k = 0; k < nodes.Count(); k++)
-        //    {
-        //        double t;
-        //        double h = 0;
-
-        //        if (k > 0)
-        //        {
-        //            h = nodes[k].x - nodes[k-1].x;
-        //        }
-        //        else
-        //        {
-        //            h = 0;
-        //        }
-
-        //        t = GetVarT(nodes[0].x, h, x);
-
-        //        double tmpDiff = ProgressiveDifference(k, nodes) * CountFactor(k, t) / factorial((UInt64)k);
-        //        result += tmpDiff;
-        //    }
-
-        //    return result;
-        //}
         public double Interpolate(List<Point> nodes, double x)
         {
             DateTime time = DateTime.Now;
