@@ -1,0 +1,8 @@
+c:\users\kasia\documents\visual studio 2013\Projects\Integration\IntegratorTest\bin\Debug\IntegratorTest.exe.config
+c:\users\kasia\documents\visual studio 2013\Projects\Integration\IntegratorTest\bin\Debug\IntegratorTest.exe
+c:\users\kasia\documents\visual studio 2013\Projects\Integration\IntegratorTest\bin\Debug\IntegratorTest.pdb
+c:\users\kasia\documents\visual studio 2013\Projects\Integration\IntegratorTest\obj\Debug\IntegratorTest.exe
+c:\users\kasia\documents\visual studio 2013\Projects\Integration\IntegratorTest\obj\Debug\IntegratorTest.pdb
+C:\Users\Kasia\Documents\Visual Studio 2013\Projects\Integration\IntegratorTest\bin\Debug\Integration.exe
+C:\Users\Kasia\Documents\Visual Studio 2013\Projects\Integration\IntegratorTest\bin\Debug\Integration.pdb
+C:\Users\Kasia\Documents\Visual Studio 2013\Projects\Integration\IntegratorTest\obj\Debug\IntegratorTest.csprojResolveAssemblyReference.cache

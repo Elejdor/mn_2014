@@ -1,0 +1,17 @@
+c:\users\kasia\documents\visual studio 2013\Projects\Integration\Integration\bin\Debug\Integration.exe.config
+c:\users\kasia\documents\visual studio 2013\Projects\Integration\Integration\bin\Debug\Integration.exe
+c:\users\kasia\documents\visual studio 2013\Projects\Integration\Integration\bin\Debug\Integration.pdb
+c:\users\kasia\documents\visual studio 2013\Projects\Integration\Integration\obj\Debug\Integration.Form1.resources
+c:\users\kasia\documents\visual studio 2013\Projects\Integration\Integration\obj\Debug\Integration.Properties.Resources.resources
+c:\users\kasia\documents\visual studio 2013\Projects\Integration\Integration\obj\Debug\Integration.csproj.GenerateResource.Cache
+c:\users\kasia\documents\visual studio 2013\Projects\Integration\Integration\obj\Debug\Integration.exe
+c:\users\kasia\documents\visual studio 2013\Projects\Integration\Integration\obj\Debug\Integration.pdb
+C:\Users\WolfGD\Documents\Visual Studio 2013\Projects\Integration\Integration\bin\Debug\Integration.exe.config
+C:\Users\WolfGD\Documents\Visual Studio 2013\Projects\Integration\Integration\obj\Debug\Integration.exe
+C:\Users\WolfGD\Documents\Visual Studio 2013\Projects\Integration\Integration\obj\Debug\Integration.pdb
+C:\Users\WolfGD\Documents\Visual Studio 2013\Projects\Integration\Integration\obj\Debug\Integration.csprojResolveAssemblyReference.cache
+C:\Users\WolfGD\Documents\Visual Studio 2013\Projects\Integration\Integration\obj\Debug\Integration.Form1.resources
+C:\Users\WolfGD\Documents\Visual Studio 2013\Projects\Integration\Integration\obj\Debug\Integration.Properties.Resources.resources
+C:\Users\WolfGD\Documents\Visual Studio 2013\Projects\Integration\Integration\obj\Debug\Integration.csproj.GenerateResource.Cache
+C:\Users\WolfGD\Documents\Visual Studio 2013\Projects\Integration\Integration\bin\Debug\Integration.exe
+C:\Users\WolfGD\Documents\Visual Studio 2013\Projects\Integration\Integration\bin\Debug\Integration.pdb
