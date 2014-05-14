@@ -11,9 +11,9 @@ namespace Integration
         public string formulaSimpson;
         public string formulaLaguerre;
         public string formulaHermite;
-
+        protected const double e = 2.71828182846;
         public abstract double Calculate(double x);
-
+        public abstract double Calculate2(double x);
         public override string ToString()
         {
             return formulaSimpson;
@@ -32,6 +32,11 @@ namespace Integration
         {
             return x * x;
         }
+
+        public override double Calculate2(double x)
+        {
+            return Math.Pow(e, -x*x)* x * x;
+        }
     }
 
     class fCos2x : Function
@@ -46,6 +51,11 @@ namespace Integration
         {
             return Math.Cos(2 * x);
         }
+
+        public override double Calculate2(double x)
+        {
+            return Math.Pow(e, -x * x) * Math.Cos(2 * x);
+        }
     }
 
     class f3sinx : Function
@@ -59,6 +69,11 @@ namespace Integration
         public override double Calculate(double x)
         {
             return 3 * Math.Sin(x);
+        }
+
+        public override double Calculate2(double x)
+        {
+            return Math.Pow(e, -x * x) * 3 * Math.Sin(x);
         }
     }
 
@@ -76,5 +91,9 @@ namespace Integration
             return Math.Pow(2, x);
         }
 
+        public override double Calculate2(double x)
+        {
+            return Math.Pow(e, -x * x) * Math.Pow(2, x);
+        }
     }
 }

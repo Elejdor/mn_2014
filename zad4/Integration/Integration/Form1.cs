@@ -40,7 +40,7 @@ namespace Integration
             double.TryParse(tbSimB.Text, out b);
             double.TryParse(tbBladObliczen.Text, out error);
 
-            result = integrator.Integrate(functions[cbFunction.SelectedIndex].Calculate, a,b,error);
+            result = integrator.Integrate(functions[cbFunction.SelectedIndex].Calculate2, a,b,error);
             lbSimpsonResult.Text = result.ToString();
         }
 
