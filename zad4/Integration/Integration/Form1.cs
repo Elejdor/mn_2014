@@ -46,24 +46,33 @@ namespace Integration
 
         private void btnHerCount_Click(object sender, EventArgs e)
         {
-            double result = 0, lim;
+            double result = 0, lim, eps;
             int nodes;
 
-            double.TryParse(tbLim.Text, out lim);
+            double.TryParse(tbBladObliczen2.Text, out eps);
+            double.TryParse(lbLim.Text, out lim);
             int.TryParse(comboNodes.Text, out nodes);
 
             if (rbHermit.Checked == true)
             {
                 HermiteIntegrator integrator = new HermiteIntegrator();
+                lim = integrator.LimitCount(functions[cbFunction.SelectedIndex], eps);
                 result = integrator.Integrate(functions[cbFunction.SelectedIndex], nodes);
             }
             else if (rbLag.Checked == true)
             {
                 LaguerreIntegrator integrator = new LaguerreIntegrator();
+                lim = integrator.LimitCount(functions[cbFunction.SelectedIndex], eps);
                 result = integrator.Integrate(functions[cbFunction.SelectedIndex], nodes);
             }
 
+            lbLim.Text = lim.ToString();
             lbHerLagResult.Text = result.ToString();
+        }
+
+        private void rPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

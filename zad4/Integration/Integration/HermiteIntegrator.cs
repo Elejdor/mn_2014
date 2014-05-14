@@ -1,4 +1,5 @@
-﻿using System;
+﻿using simpson;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -53,6 +54,23 @@ namespace Integration
             this.initializeListOfQuadratures(numberOfNodes);
             double result = this.Integrator(f);
             this.quadratures.Clear();
+            return result;
+        }
+
+        public double LimitCount(Function f, double eps)
+        {
+
+            double result = 0.0;
+            double a = 1.0;
+            double delta = 0.5;
+            SimpsonIntegrator simpsonInteg = new SimpsonIntegrator();
+            result += simpsonInteg.Integrate(f.Calculate, 0, a, 0.01);
+            while (result > eps)
+            {
+                result += simpsonInteg.Integrate(f.Calculate, a, a + delta, 0.01);
+                a = a + delta;
+            }
+
             return result;
         }
 
