@@ -1,0 +1,10 @@
+c:\users\wolfgd\documents\visual studio 2013\Projects\HermiteAprox2\HermiteAprox2\bin\Debug\HermiteAprox2.exe.config
+c:\users\wolfgd\documents\visual studio 2013\Projects\HermiteAprox2\HermiteAprox2\obj\Debug\HermiteAprox2.csprojResolveAssemblyReference.cache
+c:\users\wolfgd\documents\visual studio 2013\Projects\HermiteAprox2\HermiteAprox2\obj\Debug\HermiteAprox2.Properties.Resources.resources
+c:\users\wolfgd\documents\visual studio 2013\Projects\HermiteAprox2\HermiteAprox2\obj\Debug\HermiteAprox2.csproj.GenerateResource.Cache
+c:\users\wolfgd\documents\visual studio 2013\Projects\HermiteAprox2\HermiteAprox2\obj\Debug\HermiteAprox2.Form1.resources
+c:\users\wolfgd\documents\visual studio 2013\Projects\HermiteAprox2\HermiteAprox2\bin\Debug\HermiteAprox2.exe
+c:\users\wolfgd\documents\visual studio 2013\Projects\HermiteAprox2\HermiteAprox2\bin\Debug\HermiteAprox2.pdb
+c:\users\wolfgd\documents\visual studio 2013\Projects\HermiteAprox2\HermiteAprox2\obj\Debug\HermiteAprox2.exe
+c:\users\wolfgd\documents\visual studio 2013\Projects\HermiteAprox2\HermiteAprox2\obj\Debug\HermiteAprox2.pdb
+c:\users\wolfgd\documents\visual studio 2013\Projects\HermiteAprox2\HermiteAprox2\obj\Debug\HermiteAprox2.FormPlot.resources
