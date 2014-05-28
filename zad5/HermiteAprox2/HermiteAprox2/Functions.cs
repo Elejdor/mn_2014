@@ -45,10 +45,10 @@ namespace HermiteAprox2
 
         public override double f(double x)
         {
-            double[] factors = { -3, 6, 4 };
+            double[] factors = { 6, -4, 6, 4 };
             double result = factors[0];
 
-            for (int i = 1; i < 3; i++)
+            for (int i = 1; i < 4; i++)
             {
                 result = result * x + factors[i];
             }
@@ -57,7 +57,7 @@ namespace HermiteAprox2
 
         public override string ToString()
         {
-            return "-3x^2 + 6x + 4";
+            return "6x^3 - 4x^2 + 6x + 4";
         }
     }
 
